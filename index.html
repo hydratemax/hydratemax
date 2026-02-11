@@ -1,201 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HydrateMax - Ultra Premium</title>
+<!-- WHATSAPP CTA BELOW PRODUCT (ULTRA CHARACTER UPGRADE) -->
+<div class="wa-cta-wrap">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- MINI HUMAN CHARACTER -->
+  <div class="mini-human">
+    <div class="head"></div>
+    <div class="body"></div>
+    <div class="arm left"></div>
+    <div class="arm right point"></div>
+    <div class="leg left"></div>
+    <div class="leg right"></div>
+    <div class="shadow"></div>
+  </div>
+
+  <!-- WHATSAPP BUTTON -->
+  <a href="https://wa.me/601155851004" target="_blank" class="wa-cta-btn">
+    <span class="wa-icon">💬</span>
+    <span>Order Here</span>
+  </a>
+
+</div>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 
-body{
-  background:url('background.jpg') center/cover no-repeat fixed;
-  color:#fff;
-  overflow-x:hidden;
-}
-
-/* PREMIUM GLASS OVERLAY */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:radial-gradient(circle at 30% 20%,rgba(0,200,255,0.25),transparent 40%),
-             radial-gradient(circle at 70% 80%,rgba(0,120,255,0.25),transparent 40%),
-             rgba(5,15,25,0.65);
-  backdrop-filter:blur(8px);
-  z-index:-1;
-}
-
-/* SNOW / FROST PARTICLES */
-.snow{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  overflow:hidden;
-}
-
-.snow span{
-  position:absolute;
-  width:5px;
-  height:5px;
-  background:white;
-  border-radius:50%;
-  opacity:0.8;
-  animation:snowFall linear infinite;
-}
-
-@keyframes snowFall{
-  from{transform:translateY(-10vh)}
-  to{transform:translateY(110vh)}
-}
-
-.hero{
-  min-height:100vh;
+/* WRAP */
+.wa-cta-wrap{
   display:flex;
-  align-items:center;
-  justify-content:center;
   flex-direction:column;
-  text-align:center;
-  padding:40px 15px;
-}
-
-.hero h1{
-  font-size:48px;
-  font-weight:700;
-  letter-spacing:1px;
-  background:linear-gradient(90deg,#7ee8ff,#00bfff,#7ee8ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:shine 6s linear infinite;
-}
-
-@keyframes shine{0%{background-position:0%}100%{background-position:200%}}
-.hero p{max-width:600px;margin-top:15px;opacity:0.9;font-size:14px}
-
-/* CENTER WHATSAPP BUTTON */
-.wa-center{
-  margin-top:20px;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  background:#25D366;
-  display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 0 15px rgba(37,211,102,0.7);
-  animation:waPulse 2s infinite;
+  gap:16px;
+  margin-top:22px;
+  position:relative;
 }
 
-.wa-center img{width:32px}
-
-@keyframes waPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
-
-.bottle{margin-top:30px;position:relative;animation:float 5s ease-in-out infinite}
-.bottle img{width:200px;max-width:80vw}
-
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-
-.section{padding:70px 15px;max-width:900px;margin:auto;text-align:center}
-.section h2{font-size:28px;margin-bottom:20px}
-
-.nutrition{display:grid;gap:15px;margin-top:20px;text-align:center}
-.bar{background:rgba(255,255,255,0.06);border-radius:40px;overflow:hidden;backdrop-filter:blur(6px)}
-.bar span{display:block;padding:8px;text-align:center;font-size:13px}
-.progress{height:8px;background:linear-gradient(90deg,#7ee8ff,#00bfff);width:0;animation:loadBar 2s forwards}
-@keyframes loadBar{to{width:100%}}
-
-.benefits{display:grid;gap:15px;margin-top:20px}
-.benefit{padding:15px;border-radius:14px;background:rgba(255,255,255,0.05);backdrop-filter:blur(6px);font-size:13px}
-
-footer{padding:35px 15px;text-align:center;border-top:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);font-size:13px}
-footer img{width:90px;margin-top:12px;animation:logoGlow 3s ease-in-out infinite}
-
-@keyframes logoGlow{0%,100%{filter:drop-shadow(0 0 4px rgba(0,200,255,0.3))}50%{filter:drop-shadow(0 0 15px rgba(0,200,255,0.8))}}
-
-.reveal{opacity:0;transform:translateY(30px);transition:all 0.8s ease}
-.reveal.active{opacity:1;transform:translateY(0)}
-
-/* MOBILE OPTIMIZATION */
-@media (max-width:480px){
-  .hero h1{font-size:36px}
-  .bottle img{width:180px}
-  .section{padding:60px 12px}
+/* BUTTON */
+.wa-cta-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:linear-gradient(135deg,#25D366,#1ebe5d);
+  color:#fff;
+  padding:14px 28px;
+  border-radius:999px;
+  font-weight:600;
+  font-size:16px;
+  text-decoration:none;
+  box-shadow:0 10px 30px rgba(37,211,102,0.35);
+  animation:waPulse 2s infinite ease-in-out;
+  transition:.25s ease;
 }
+
+.wa-cta-btn:hover{
+  transform:translateY(-2px) scale(1.05);
+  box-shadow:0 14px 40px rgba(37,211,102,0.55);
+}
+
+@keyframes waPulse{
+  0%,100%{box-shadow:0 0 0 rgba(37,211,102,0.35);} 
+  50%{box-shadow:0 0 30px rgba(37,211,102,0.65);} 
+}
+
+/* MINI HUMAN */
+.mini-human{
+  position:absolute;
+  left:-70px;
+  bottom:4px;
+  width:32px;
+  height:56px;
+  animation:walkForward 6s linear infinite;
+}
+
+.head{
+  width:10px;
+  height:10px;
+  background:#fff;
+  border-radius:50%;
+  margin:0 auto 2px;
+}
+
+.body{
+  width:12px;
+  height:18px;
+  background:#fff;
+  border-radius:4px;
+  margin:0 auto;
+}
+
+.arm{
+  width:3px;
+  height:14px;
+  background:#fff;
+  position:absolute;
+  top:14px;
+  left:14px;
+  transform-origin:top;
+}
+
+.arm.left{ animation:armSwingL .6s infinite alternate; }
+.arm.right{ animation:armSwingR .6s infinite alternate; }
+
+/* pointing arm pause */
+.arm.right.point{ animation:armPoint 6s linear infinite; }
+
+.leg{
+  width:3px;
+  height:16px;
+  background:#fff;
+  position:absolute;
+  bottom:0;
+  left:14px;
+  transform-origin:top;
+}
+
+.leg.left{ animation:legSwingL .6s infinite alternate; }
+.leg.right{ animation:legSwingR .6s infinite alternate; }
+
+.shadow{
+  position:absolute;
+  bottom:-3px;
+  left:6px;
+  width:20px;
+  height:4px;
+  background:rgba(0,0,0,0.35);
+  border-radius:50%;
+  filter:blur(2px);
+  animation:shadowMove 1s infinite alternate;
+}
+
+/* WALK FORWARD + STOP + POINT */
+@keyframes walkForward{
+  0%{transform:translateX(0);} 
+  60%{transform:translateX(70px);} 
+  75%{transform:translateX(75px);} 
+  85%{transform:translateX(75px) rotate(-12deg);} 
+  100%{transform:translateX(70px);} 
+}
+
+/* ARM + LEG MOTION */
+@keyframes legSwingL{ from{transform:rotate(22deg);} to{transform:rotate(-22deg);} }
+@keyframes legSwingR{ from{transform:rotate(-22deg);} to{transform:rotate(22deg);} }
+
+@keyframes armSwingL{ from{transform:rotate(-35deg);} to{transform:rotate(25deg);} }
+@keyframes armSwingR{ from{transform:rotate(35deg);} to{transform:rotate(-25deg);} }
+
+/* POINTING ARM TIMING */
+@keyframes armPoint{
+  0%{transform:rotate(35deg);} 
+  60%{transform:rotate(-20deg);} 
+  75%{transform:rotate(-65deg);} 
+  90%{transform:rotate(-65deg);} 
+  100%{transform:rotate(35deg);} 
+}
+
+@keyframes shadowMove{
+  from{transform:scaleX(1);} 
+  to{transform:scaleX(.85);} 
+}
+
+/* MOBILE FRIENDLY */
+@media(max-width:768px){
+  .wa-cta-btn{font-size:15px;padding:12px 22px;}
+  .mini-human{left:-50px;transform:scale(.85);} 
+}
+
 </style>
-</head>
-
-<body>
-
-<!-- SNOW PARTICLES -->
-<div class="snow" id="snow"></div>
-
-<section class="hero">
-  <h1>HydrateMax</h1>
-  <p>Ultra premium alkaline hydration crafted to restore balance, boost energy and elevate your daily performance.</p>
-
-  <div class="bottle">
-    <img src="product.png" alt="HydrateMax Bottle">
-  </div>
-
-  <!-- WHATSAPP CENTER BELOW PRODUCT -->
-  <a href="https://wa.me/601155851004" class="wa-center" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-  </a>
-</section>
-
-<section class="section reveal">
-  <h2>Nutrition Content</h2>
-  <div class="nutrition">
-    <div class="bar"><span>pH Level 8.5</span><div class="progress"></div></div>
-    <div class="bar"><span>Potassium 3.97 mg/L</span><div class="progress"></div></div>
-    <div class="bar"><span>Calcium 12.38 mg/L</span><div class="progress"></div></div>
-    <div class="bar"><span>Magnesium 0.67 mg/L</span><div class="progress"></div></div>
-    <div class="bar"><span>Sodium 4.10 mg/L</span><div class="progress"></div></div>
-  </div>
-</section>
-
-<section class="section reveal">
-  <h2>Benefits of Alkaline Water</h2>
-  <div class="benefits">
-    <div class="benefit">Supports better hydration and faster water absorption.</div>
-    <div class="benefit">Helps neutralize acidity in the body.</div>
-    <div class="benefit">Boosts energy and reduces fatigue.</div>
-    <div class="benefit">Promotes better metabolism and detox balance.</div>
-  </div>
-</section>
-
-<footer>
-  <p>Official Distributor</p>
-  <strong>Koperasi Warga Institut Koperasi Malaysia Berhad (KoIKMA)</strong>
-  <br>
-  <img src="koikma-logo.png" alt="KoIKMA Logo">
-</footer>
-
-<script>
-/* SCROLL REVEAL */
-const reveals=document.querySelectorAll('.reveal');
-function revealOnScroll(){
-  const windowHeight=window.innerHeight;
-  reveals.forEach(el=>{
-    const top=el.getBoundingClientRect().top;
-    if(top<windowHeight-60){el.classList.add('active');}
-  });
-}
-window.addEventListener('scroll',revealOnScroll);
-revealOnScroll();
-
-/* GENERATE SNOW PARTICLES */
-const snow=document.getElementById('snow');
-for(let i=0;i<40;i++){
-  const s=document.createElement('span');
-  s.style.left=Math.random()*100+'vw';
-  s.style.animationDuration=(6+Math.random()*6)+'s';
-  s.style.opacity=Math.random();
-  snow.appendChild(s);
-}
-</script>
-
-</body>
-</html>
