@@ -74,29 +74,70 @@ body::before{
 @keyframes shine{0%{background-position:0%}100%{background-position:200%}}
 .hero p{max-width:600px;margin-top:15px;opacity:0.9;font-size:14px}
 
-/* CENTER WHATSAPP BUTTON */
-.wa-center{
-  margin-top:20px;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  background:#25D366;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 15px rgba(37,211,102,0.7);
-  animation:waPulse 2s infinite;
-}
-
-.wa-center img{width:32px}
-
-@keyframes waPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
-
+/* FLOATING BOTTLE */
 .bottle{margin-top:30px;position:relative;animation:float 5s ease-in-out infinite}
 .bottle img{width:200px;max-width:80vw}
 
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
+/* FUN WHATSAPP BUTTON */
+.wa-fun{
+  position: relative;
+  margin-top:20px;
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:#25D366;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 20px rgba(37,211,102,0.7);
+  animation:waBounce 2s infinite;
+  cursor:pointer;
+  transition:transform 0.2s;
+}
+
+.wa-fun img{
+  width:36px;
+  transition:transform 0.2s;
+}
+
+.wa-fun:hover{
+  transform:scale(1.2) rotate(-10deg);
+}
+
+.wa-fun:hover img{
+  transform:rotate(15deg);
+}
+
+/* Bounce animation */
+@keyframes waBounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+
+/* Badge / tooltip */
+.wa-badge{
+  position: absolute;
+  top:-25px;
+  background: linear-gradient(45deg,#00ffe0,#00bfff);
+  color:#fff;
+  font-size:12px;
+  font-weight:600;
+  padding:4px 8px;
+  border-radius:12px;
+  opacity:0;
+  transform:translateY(-10px);
+  transition:all 0.3s ease;
+  pointer-events:none;
+}
+
+.wa-fun:hover .wa-badge{
+  opacity:1;
+  transform:translateY(-35px);
+}
+
+/* SECTION STYLING */
 .section{padding:70px 15px;max-width:900px;margin:auto;text-align:center}
 .section h2{font-size:28px;margin-bottom:20px}
 
@@ -109,11 +150,13 @@ body::before{
 .benefits{display:grid;gap:15px;margin-top:20px}
 .benefit{padding:15px;border-radius:14px;background:rgba(255,255,255,0.05);backdrop-filter:blur(6px);font-size:13px}
 
+/* FOOTER */
 footer{padding:35px 15px;text-align:center;border-top:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);font-size:13px}
 footer img{width:90px;margin-top:12px;animation:logoGlow 3s ease-in-out infinite}
 
 @keyframes logoGlow{0%,100%{filter:drop-shadow(0 0 4px rgba(0,200,255,0.3))}50%{filter:drop-shadow(0 0 15px rgba(0,200,255,0.8))}}
 
+/* SCROLL REVEAL */
 .reveal{opacity:0;transform:translateY(30px);transition:all 0.8s ease}
 .reveal.active{opacity:1;transform:translateY(0)}
 
@@ -139,8 +182,9 @@ footer img{width:90px;margin-top:12px;animation:logoGlow 3s ease-in-out infinite
     <img src="product.png" alt="HydrateMax Bottle">
   </div>
 
-  <!-- WHATSAPP CENTER BELOW PRODUCT -->
-  <a href="https://wa.me/601155851004" class="wa-center" target="_blank">
+  <!-- FUN WHATSAPP BUTTON -->
+  <a href="https://wa.me/601155851004" class="wa-fun" target="_blank" aria-label="Order HydrateMax on WhatsApp">
+    <div class="wa-badge">Order Now!</div>
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
   </a>
 </section>
