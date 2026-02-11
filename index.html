@@ -1,166 +1,167 @@
-<!-- WHATSAPP CTA BELOW PRODUCT (ULTRA CHARACTER UPGRADE) -->
-<div class="wa-cta-wrap">
-
-  <!-- MINI HUMAN CHARACTER -->
-  <div class="mini-human">
-    <div class="head"></div>
-    <div class="body"></div>
-    <div class="arm left"></div>
-    <div class="arm right point"></div>
-    <div class="leg left"></div>
-    <div class="leg right"></div>
-    <div class="shadow"></div>
-  </div>
-
-  <!-- WHATSAPP BUTTON -->
-  <a href="https://wa.me/601155851004" target="_blank" class="wa-cta-btn">
-    <span class="wa-icon">💬</span>
-    <span>Order Here</span>
-  </a>
-
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HydrateMax</title>
 
 <style>
 
-/* WRAP */
-.wa-cta-wrap{
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#0b1220 url('background.jpg') center/cover no-repeat fixed;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+.container{
+  min-height:100vh;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:16px;
-  margin-top:22px;
-  position:relative;
+  text-align:center;
+  padding:20px;
 }
 
-/* BUTTON */
+h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.hero-image{
+  width:220px;
+  max-width:80%;
+  margin:20px 0;
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);} 
+  50%{transform:translateY(-12px);} 
+}
+
+/* WHATSAPP CTA */
+.wa-cta-wrap{
+  position:relative;
+  margin-top:10px;
+}
+
 .wa-cta-btn{
-  display:flex;
+  display:inline-flex;
   align-items:center;
   gap:10px;
   background:linear-gradient(135deg,#25D366,#1ebe5d);
   color:#fff;
-  padding:14px 28px;
+  padding:14px 26px;
   border-radius:999px;
-  font-weight:600;
-  font-size:16px;
+  font-weight:bold;
   text-decoration:none;
-  box-shadow:0 10px 30px rgba(37,211,102,0.35);
-  animation:waPulse 2s infinite ease-in-out;
-  transition:.25s ease;
+  box-shadow:0 0 25px rgba(37,211,102,0.5);
+  animation:pulse 2s infinite;
 }
 
-.wa-cta-btn:hover{
-  transform:translateY(-2px) scale(1.05);
-  box-shadow:0 14px 40px rgba(37,211,102,0.55);
-}
-
-@keyframes waPulse{
-  0%,100%{box-shadow:0 0 0 rgba(37,211,102,0.35);} 
-  50%{box-shadow:0 0 30px rgba(37,211,102,0.65);} 
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 10px rgba(37,211,102,0.4);} 
+  50%{box-shadow:0 0 30px rgba(37,211,102,0.8);} 
 }
 
 /* MINI HUMAN */
 .mini-human{
   position:absolute;
-  left:-70px;
-  bottom:4px;
-  width:32px;
-  height:56px;
-  animation:walkForward 6s linear infinite;
-}
-
-.head{
-  width:10px;
-  height:10px;
-  background:#fff;
-  border-radius:50%;
-  margin:0 auto 2px;
-}
-
-.body{
-  width:12px;
-  height:18px;
-  background:#fff;
-  border-radius:4px;
-  margin:0 auto;
-}
-
-.arm{
-  width:3px;
-  height:14px;
-  background:#fff;
-  position:absolute;
-  top:14px;
-  left:14px;
-  transform-origin:top;
-}
-
-.arm.left{ animation:armSwingL .6s infinite alternate; }
-.arm.right{ animation:armSwingR .6s infinite alternate; }
-
-/* pointing arm pause */
-.arm.right.point{ animation:armPoint 6s linear infinite; }
-
-.leg{
-  width:3px;
-  height:16px;
-  background:#fff;
-  position:absolute;
+  left:-60px;
   bottom:0;
-  left:14px;
-  transform-origin:top;
+  width:26px;
+  height:50px;
+  animation:walk 6s linear infinite;
 }
 
-.leg.left{ animation:legSwingL .6s infinite alternate; }
-.leg.right{ animation:legSwingR .6s infinite alternate; }
+.head{width:10px;height:10px;background:#fff;border-radius:50%;margin:0 auto;}
+.body{width:12px;height:18px;background:#fff;margin:0 auto;border-radius:3px;}
+.arm,.leg{width:3px;background:#fff;position:absolute;left:12px;transform-origin:top;}
+.arm{height:14px;top:12px;}
+.leg{height:16px;bottom:0;}
 
-.shadow{
-  position:absolute;
-  bottom:-3px;
-  left:6px;
-  width:20px;
-  height:4px;
-  background:rgba(0,0,0,0.35);
-  border-radius:50%;
-  filter:blur(2px);
-  animation:shadowMove 1s infinite alternate;
-}
+.arm.left{animation:armL .6s infinite alternate;}
+.arm.right{animation:armPoint 6s linear infinite;}
+.leg.left{animation:legL .6s infinite alternate;}
+.leg.right{animation:legR .6s infinite alternate;}
 
-/* WALK FORWARD + STOP + POINT */
-@keyframes walkForward{
+@keyframes walk{
   0%{transform:translateX(0);} 
   60%{transform:translateX(70px);} 
-  75%{transform:translateX(75px);} 
-  85%{transform:translateX(75px) rotate(-12deg);} 
+  80%{transform:translateX(75px) rotate(-10deg);} 
   100%{transform:translateX(70px);} 
 }
 
-/* ARM + LEG MOTION */
-@keyframes legSwingL{ from{transform:rotate(22deg);} to{transform:rotate(-22deg);} }
-@keyframes legSwingR{ from{transform:rotate(-22deg);} to{transform:rotate(22deg);} }
+@keyframes armL{from{transform:rotate(-30deg);}to{transform:rotate(30deg);}}
+@keyframes legL{from{transform:rotate(20deg);}to{transform:rotate(-20deg);}}
+@keyframes legR{from{transform:rotate(-20deg);}to{transform:rotate(20deg);}}
 
-@keyframes armSwingL{ from{transform:rotate(-35deg);} to{transform:rotate(25deg);} }
-@keyframes armSwingR{ from{transform:rotate(35deg);} to{transform:rotate(-25deg);} }
-
-/* POINTING ARM TIMING */
 @keyframes armPoint{
-  0%{transform:rotate(35deg);} 
+  0%{transform:rotate(30deg);} 
   60%{transform:rotate(-20deg);} 
-  75%{transform:rotate(-65deg);} 
-  90%{transform:rotate(-65deg);} 
-  100%{transform:rotate(35deg);} 
+  80%{transform:rotate(-70deg);} 
+  100%{transform:rotate(30deg);} 
 }
 
-@keyframes shadowMove{
-  from{transform:scaleX(1);} 
-  to{transform:scaleX(.85);} 
+footer{
+  margin-top:60px;
+  padding:20px;
+  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,0.05);
+  border-top:1px solid rgba(255,255,255,0.15);
 }
 
-/* MOBILE FRIENDLY */
+.koikma-logo{
+  width:120px;
+  margin-top:10px;
+  animation:logoGlow 3s infinite alternate;
+}
+
+@keyframes logoGlow{
+  from{filter:drop-shadow(0 0 5px rgba(255,255,255,0.3));}
+  to{filter:drop-shadow(0 0 20px rgba(0,200,255,0.9));}
+}
+
 @media(max-width:768px){
-  .wa-cta-btn{font-size:15px;padding:12px 22px;}
-  .mini-human{left:-50px;transform:scale(.85);} 
+  h1{font-size:32px;}
+  .mini-human{left:-45px;transform:scale(.85);} 
 }
 
 </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>HydrateMax</h1>
+
+  <img src="product.png" class="hero-image" alt="HydrateMax Bottle" />
+
+  <div class="wa-cta-wrap">
+
+    <div class="mini-human">
+      <div class="head"></div>
+      <div class="body"></div>
+      <div class="arm left"></div>
+      <div class="arm right"></div>
+      <div class="leg left"></div>
+      <div class="leg right"></div>
+    </div>
+
+    <a href="https://wa.me/601155851004" target="_blank" class="wa-cta-btn">
+      💬 Order Here
+    </a>
+
+  </div>
+
+  <footer>
+    Official Distributor<br>
+    <img src="koikma-logo.png" class="koikma-logo" alt="KoIKMA Logo" />
+  </footer>
+</div>
+
+</body>
+</html>
