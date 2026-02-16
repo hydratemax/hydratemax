@@ -16,7 +16,7 @@ body{
   overflow-x:hidden;
 }
 
-/* PREMIUM GLASS OVERLAY */
+/* GLASS OVERLAY */
 body::before{
   content:"";
   position:fixed;
@@ -28,14 +28,13 @@ body::before{
   z-index:-1;
 }
 
-/* SNOW / FROST PARTICLES */
+/* SNOW */
 .snow{
   position:fixed;
   inset:0;
   pointer-events:none;
   overflow:hidden;
 }
-
 .snow span{
   position:absolute;
   width:5px;
@@ -45,12 +44,12 @@ body::before{
   opacity:0.8;
   animation:snowFall linear infinite;
 }
-
 @keyframes snowFall{
   from{transform:translateY(-10vh)}
   to{transform:translateY(110vh)}
 }
 
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
@@ -64,25 +63,29 @@ body::before{
 .hero h1{
   font-size:48px;
   font-weight:700;
-  letter-spacing:1px;
   background:linear-gradient(90deg,#7ee8ff,#00bfff,#7ee8ff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation:shine 6s linear infinite;
 }
 
-@keyframes shine{0%{background-position:0%}100%{background-position:200%}}
-.hero p{max-width:600px;margin-top:15px;opacity:0.9;font-size:14px}
+.hero p{
+  max-width:620px;
+  margin-top:15px;
+  opacity:0.95;
+  font-size:15px;
+}
 
-/* FLOATING BOTTLE */
-.bottle{margin-top:30px;position:relative;animation:float 5s ease-in-out infinite}
-.bottle img{width:200px;max-width:80vw}
+/* BOTTLE (NO ANIMATION NOW) */
+.bottle{
+  margin-top:30px;
+}
+.bottle img{
+  width:200px;
+  max-width:80vw;
+}
 
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-
-/* FUN WHATSAPP BUTTON */
+/* WHATSAPP */
 .wa-fun{
-  position: relative;
   margin-top:20px;
   width:70px;
   height:70px;
@@ -92,103 +95,84 @@ body::before{
   align-items:center;
   justify-content:center;
   box-shadow:0 0 20px rgba(37,211,102,0.7);
-  animation:waBounce 2s infinite;
-  cursor:pointer;
   transition:transform 0.2s;
 }
+.wa-fun img{width:36px}
+.wa-fun:hover{transform:scale(1.15)}
 
-.wa-fun img{
-  width:36px;
-  transition:transform 0.2s;
+.section{
+  padding:70px 15px;
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+}
+.section h2{
+  font-size:30px;
+  margin-bottom:20px;
+  background:linear-gradient(90deg,#7ee8ff,#00bfff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-.wa-fun:hover{
-  transform:scale(1.2) rotate(-10deg);
+.nutrition{display:grid;gap:15px;margin-top:20px}
+.bar{
+  background:rgba(255,255,255,0.06);
+  border-radius:40px;
+  overflow:hidden;
 }
-
-.wa-fun:hover img{
-  transform:rotate(15deg);
+.bar span{display:block;padding:8px;font-size:13px}
+.progress{
+  height:8px;
+  background:linear-gradient(90deg,#7ee8ff,#00bfff);
+  width:100%;
 }
-
-/* Bounce animation */
-@keyframes waBounce{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-12px)}
-}
-
-/* Badge / tooltip */
-.wa-badge{
-  position: absolute;
-  top:-25px;
-  background: linear-gradient(45deg,#00ffe0,#00bfff);
-  color:#fff;
-  font-size:12px;
-  font-weight:600;
-  padding:4px 8px;
-  border-radius:12px;
-  opacity:0;
-  transform:translateY(-10px);
-  transition:all 0.3s ease;
-  pointer-events:none;
-}
-
-.wa-fun:hover .wa-badge{
-  opacity:1;
-  transform:translateY(-35px);
-}
-
-/* SECTION STYLING */
-.section{padding:70px 15px;max-width:900px;margin:auto;text-align:center}
-.section h2{font-size:28px;margin-bottom:20px}
-
-.nutrition{display:grid;gap:15px;margin-top:20px;text-align:center}
-.bar{background:rgba(255,255,255,0.06);border-radius:40px;overflow:hidden;backdrop-filter:blur(6px)}
-.bar span{display:block;padding:8px;text-align:center;font-size:13px}
-.progress{height:8px;background:linear-gradient(90deg,#7ee8ff,#00bfff);width:0;animation:loadBar 2s forwards}
-@keyframes loadBar{to{width:100%}}
 
 .benefits{display:grid;gap:15px;margin-top:20px}
-.benefit{padding:15px;border-radius:14px;background:rgba(255,255,255,0.05);backdrop-filter:blur(6px);font-size:13px}
+.benefit{
+  padding:15px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.05);
+  font-size:13px;
+}
 
-/* FOOTER */
-footer{padding:35px 15px;text-align:center;border-top:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);font-size:13px}
-footer img{width:90px;margin-top:12px;animation:logoGlow 3s ease-in-out infinite}
+footer{
+  padding:35px 15px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.05);
+  font-size:13px;
+}
+footer img{width:90px;margin-top:12px}
 
-@keyframes logoGlow{0%,100%{filter:drop-shadow(0 0 4px rgba(0,200,255,0.3))}50%{filter:drop-shadow(0 0 15px rgba(0,200,255,0.8))}}
-
-/* SCROLL REVEAL */
 .reveal{opacity:0;transform:translateY(30px);transition:all 0.8s ease}
 .reveal.active{opacity:1;transform:translateY(0)}
 
-/* MOBILE OPTIMIZATION */
 @media (max-width:480px){
   .hero h1{font-size:36px}
   .bottle img{width:180px}
-  .section{padding:60px 12px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- SNOW PARTICLES -->
 <div class="snow" id="snow"></div>
 
+<!-- HERO -->
 <section class="hero">
   <h1>HydrateMax</h1>
-  <p>Ultra premium alkaline hydration crafted to restore balance, boost energy and elevate your daily performance.</p>
+  <p>Ultra premium alkaline hydration crafted under controlled laboratory conditions for purity, mineral balance and superior hydration performance.</p>
 
   <div class="bottle">
     <img src="product.png" alt="HydrateMax Bottle">
   </div>
 
-  <!-- FUN WHATSAPP BUTTON -->
-  <a href="https://wa.me/601155851004" class="wa-fun" target="_blank" aria-label="Order HydrateMax on WhatsApp">
-    <div class="wa-badge">Order Now!</div>
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+  <a href="https://wa.me/601155851004" class="wa-fun" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
   </a>
 </section>
 
+<!-- NUTRITION -->
 <section class="section reveal">
   <h2>Nutrition Content</h2>
   <div class="nutrition">
@@ -200,25 +184,54 @@ footer img{width:90px;margin-top:12px;animation:logoGlow 3s ease-in-out infinite
   </div>
 </section>
 
+<!-- BENEFITS -->
 <section class="section reveal">
   <h2>Benefits of Alkaline Water</h2>
   <div class="benefits">
-    <div class="benefit">Supports better hydration and faster water absorption.</div>
-    <div class="benefit">Helps neutralize acidity in the body.</div>
-    <div class="benefit">Boosts energy and reduces fatigue.</div>
-    <div class="benefit">Promotes better metabolism and detox balance.</div>
+    <div class="benefit">Supports better hydration and faster absorption</div>
+    <div class="benefit">Helps neutralize body acidity</div>
+    <div class="benefit">Boosts energy and reduces fatigue</div>
+    <div class="benefit">Supports metabolism and detox balance</div>
   </div>
 </section>
 
+<!-- CLINICAL LAB RESEARCH -->
+<section class="section reveal">
+  <h2>Clinical Laboratory Research</h2>
+  <p style="max-width:720px;margin:auto;opacity:0.9">
+    HydrateMax is developed and monitored in a controlled laboratory environment.
+    Every batch is tested for mineral stability, purity, and hydration efficiency using
+    professional analytical methods to ensure consistent premium quality.
+  </p>
+
+  <div class="benefits" style="margin-top:25px">
+    <div class="benefit">Laboratory tested for mineral balance</div>
+    <div class="benefit">Controlled purification and filtration process</div>
+    <div class="benefit">Quality monitored under clinical standards</div>
+    <div class="benefit">Consistent alkaline hydration performance</div>
+  </div>
+</section>
+
+<!-- CERTIFICATION BAR -->
+<section class="section reveal">
+  <h2>Quality & Certification</h2>
+  <div class="benefits">
+    <div class="benefit">ISO Quality Controlled Production</div>
+    <div class="benefit">Laboratory Verified Mineral Composition</div>
+    <div class="benefit">Food Grade Safe Packaging</div>
+    <div class="benefit">Clean Source Water Monitoring</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <p>Official Distributor</p>
   <strong>Koperasi Warga Institut Koperasi Malaysia Berhad (KoIKMA)</strong>
   <br>
-  <img src="koikma-logo.png" alt="KoIKMA Logo">
+  <img src="koikma-logo.png">
 </footer>
 
 <script>
-/* SCROLL REVEAL */
 const reveals=document.querySelectorAll('.reveal');
 function revealOnScroll(){
   const windowHeight=window.innerHeight;
@@ -230,13 +243,11 @@ function revealOnScroll(){
 window.addEventListener('scroll',revealOnScroll);
 revealOnScroll();
 
-/* GENERATE SNOW PARTICLES */
 const snow=document.getElementById('snow');
 for(let i=0;i<40;i++){
   const s=document.createElement('span');
   s.style.left=Math.random()*100+'vw';
   s.style.animationDuration=(6+Math.random()*6)+'s';
-  s.style.opacity=Math.random();
   snow.appendChild(s);
 }
 </script>
