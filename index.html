@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HydrateMax - Ultra Premium</title>
+<title>HydrateMax - Ultra Premium Alkaline Water</title>
+<meta name="description" content="HydrateMax is an ultra premium alkaline water developed under controlled laboratory conditions for purity, mineral balance and superior hydration performance.">
+<meta name="keywords" content="HydrateMax, alkaline water, premium water, hydration, KoIKMA">
+<meta property="og:title" content="HydrateMax - Ultra Premium Alkaline Water">
+<meta property="og:description" content="Ultra premium alkaline hydration developed under controlled laboratory conditions for purity, mineral balance and superior hydration performance.">
+<meta property="og:image" content="product.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HydrateMax - Ultra Premium Alkaline Water">
+<meta name="twitter:description" content="Ultra premium alkaline hydration developed under controlled laboratory conditions.">
+<meta name="twitter:image" content="product.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -28,13 +38,64 @@ body::before{
   z-index:-1;
 }
 
-/* SNOW PARTICLES */
-.snow{position:fixed;inset:0;pointer-events:none}
+/* SCROLL PROGRESS BAR */
+#progress-bar{
+  position:fixed;
+  top:0;left:0;
+  height:3px;
+  width:0%;
+  background:linear-gradient(90deg,#00bfff,#7ee8ff);
+  z-index:9999;
+  transition:width .1s linear;
+  box-shadow:0 0 8px rgba(0,191,255,0.7);
+}
+
+/* STICKY NAV */
+nav{
+  position:fixed;
+  top:3px;left:0;right:0;
+  z-index:999;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 30px;
+  height:60px;
+  background:rgba(5,15,25,0);
+  backdrop-filter:blur(0px);
+  transition:background .4s,backdrop-filter .4s,box-shadow .4s;
+  pointer-events:none;
+}
+nav.scrolled{
+  background:rgba(5,15,25,0.75);
+  backdrop-filter:blur(14px);
+  box-shadow:0 1px 0 rgba(255,255,255,0.07);
+  pointer-events:all;
+}
+.nav-logo{
+  font-size:18px;font-weight:700;
+  background:linear-gradient(90deg,#7ee8ff,#00bfff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  opacity:0;transition:opacity .4s;
+}
+nav.scrolled .nav-logo{opacity:1}
+.nav-cta{
+  opacity:0;transition:opacity .4s;
+  background:linear-gradient(90deg,#00bfff,#0060ff);
+  color:#fff;text-decoration:none;
+  padding:8px 22px;border-radius:50px;
+  font-size:13px;font-weight:600;letter-spacing:.3px;
+  box-shadow:0 0 14px rgba(0,191,255,0.4);
+  pointer-events:none;
+}
+nav.scrolled .nav-cta{opacity:1;pointer-events:all}
+.nav-cta:hover{transform:scale(1.05)}
+
+/* SNOW */
+.snow{position:fixed;inset:0;pointer-events:none;z-index:1}
 .snow span{
-  position:absolute;
-  width:5px;height:5px;
-  background:#fff;border-radius:50%;
-  opacity:.8;
+  position:absolute;width:5px;height:5px;
+  background:#fff;border-radius:50%;opacity:.8;
   animation:snowFall linear infinite;
 }
 @keyframes snowFall{
@@ -45,193 +106,578 @@ body::before{
 /* HERO */
 .hero{
   min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:40px 15px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:40px 15px;
+  position:relative;z-index:2;
 }
-
+.hero-sub{
+  font-size:12px;letter-spacing:5px;
+  text-transform:uppercase;opacity:.55;margin-bottom:12px;
+}
 .hero h1{
-  font-size:52px;
+  font-size:56px;font-weight:700;letter-spacing:-1px;
   background:linear-gradient(90deg,#7ee8ff,#00bfff,#7ee8ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
-
 .hero p{
-  max-width:650px;
-  margin-top:15px;
-  font-size:15px;
-  opacity:.95;
+  max-width:580px;margin-top:16px;
+  font-size:15px;opacity:.8;line-height:1.85;
 }
+.bottle{margin-top:36px}
+.bottle img{width:420px;max-width:80vw;filter:drop-shadow(0 20px 60px rgba(0,191,255,0.35))}
 
-/* BIGGER HERO IMAGE */
-.bottle{
-  margin-top:35px;
+/* FLOATING WA PILL */
+.wa-float{
+  position:fixed;bottom:28px;right:28px;z-index:998;
+  display:flex;align-items:center;gap:10px;
+  background:#25D366;color:#fff;text-decoration:none;
+  padding:12px 22px 12px 14px;border-radius:50px;
+  font-size:14px;font-weight:600;
+  box-shadow:0 4px 24px rgba(37,211,102,0.5);
+  animation:waPulse 2.5s ease-in-out infinite;
+  transition:transform .2s,box-shadow .2s;
 }
-.bottle img{
-  width:500px;
-  max-width:150vw;
+.wa-float:hover{transform:scale(1.06);animation:none}
+.wa-float img{width:22px;height:22px}
+@keyframes waPulse{
+  0%,100%{box-shadow:0 4px 24px rgba(37,211,102,0.5)}
+  50%{box-shadow:0 4px 38px rgba(37,211,102,0.85)}
 }
-
-/* WHATSAPP */
-.wa{
-  margin-top:25px;
-  width:70px;height:70px;
-  background:#25D366;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 18px rgba(37,211,102,.7);
-  transition:.2s;
-}
-.wa img{width:36px}
-.wa:hover{transform:scale(1.12)}
 
 /* SECTION */
 .section{
-  padding:80px 15px;
-  max-width:900px;
-  margin:auto;
-  text-align:center;
+  padding:90px 20px;max-width:960px;
+  margin:auto;text-align:center;
+  position:relative;z-index:2;
 }
-
 .section h2{
-  font-size:30px;
-  margin-bottom:20px;
+  font-size:32px;font-weight:700;margin-bottom:8px;
   background:linear-gradient(90deg,#7ee8ff,#00bfff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.section-sub{
+  font-size:12px;opacity:.5;
+  letter-spacing:4px;text-transform:uppercase;margin-bottom:8px;
+}
+.divider{
+  width:50px;height:2px;margin:16px auto 40px;border-radius:2px;
+  background:linear-gradient(90deg,#00bfff,#7ee8ff);
+  box-shadow:0 0 10px rgba(0,191,255,0.5);
 }
 
 /* LAB VIDEO */
 .lab-video{
-  max-width:850px;
-  margin:25px auto;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 12px 35px rgba(0,0,0,.45);
+  max-width:850px;margin:0 auto 28px;
+  border-radius:20px;overflow:hidden;
+  box-shadow:0 16px 50px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,0.07);
 }
-.lab-video video{
-  width:100%;
-  display:block;
+.lab-video video{width:100%;display:block}
+
+/* GLASS CARDS */
+.benefits{display:grid;gap:14px;margin-top:20px}
+.benefit{
+  padding:18px 22px;border-radius:16px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.09);
+  font-size:14px;backdrop-filter:blur(6px);
+  text-align:left;display:flex;align-items:center;gap:14px;
+  transition:background .25s,transform .25s;
+}
+.benefit:hover{background:rgba(255,255,255,0.09);transform:translateX(5px)}
+.benefit-icon{
+  width:38px;height:38px;min-width:38px;
+  background:rgba(0,191,255,0.12);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
 }
 
-/* CARDS */
-.benefits{display:grid;gap:15px;margin-top:20px}
-.benefit{
-  padding:15px;
-  border-radius:14px;
-  background:rgba(255,255,255,0.05);
-  font-size:14px;
+/* STATS */
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:20px;margin-top:40px;
 }
+.stat-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:20px;padding:32px 20px;
+  backdrop-filter:blur(8px);
+  transition:transform .25s,background .25s;
+}
+.stat-card:hover{transform:translateY(-5px);background:rgba(255,255,255,0.09)}
+.stat-num{
+  font-size:48px;font-weight:700;line-height:1;
+  background:linear-gradient(180deg,#7ee8ff,#00bfff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.stat-unit{font-size:18px;font-weight:600;opacity:.5;margin-left:2px}
+.stat-label{font-size:12px;opacity:.5;margin-top:8px;letter-spacing:.5px}
+
+/* HOW IT WORKS */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;margin-top:40px;
+}
+.step{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:20px;padding:34px 24px;
+  backdrop-filter:blur(8px);
+  transition:transform .25s,background .25s;
+}
+.step:hover{transform:translateY(-5px);background:rgba(255,255,255,0.09)}
+.step-icon{font-size:34px;margin-bottom:14px}
+.step-num{
+  width:44px;height:44px;
+  background:linear-gradient(135deg,#00bfff,#0060ff);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:700;margin:0 auto 18px;
+  box-shadow:0 0 20px rgba(0,191,255,0.4);
+}
+.step h3{font-size:16px;font-weight:600;margin-bottom:10px}
+.step p{font-size:13px;opacity:.6;line-height:1.75}
+
+/* TESTIMONIALS */
+.testimonials{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;margin-top:40px;
+}
+.testi{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:20px;padding:28px 24px;
+  backdrop-filter:blur(8px);text-align:left;
+  transition:transform .25s;
+}
+.testi:hover{transform:translateY(-4px)}
+.testi-quote{
+  font-size:42px;line-height:1;
+  background:linear-gradient(90deg,#7ee8ff,#00bfff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:8px;
+}
+.stars{color:#FFD700;font-size:12px;letter-spacing:2px;margin-bottom:12px}
+.testi p{font-size:14px;opacity:.75;line-height:1.75;font-style:italic}
+.testi-author{margin-top:20px;display:flex;align-items:center;gap:12px}
+.testi-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,#00bfff,#0060ff);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:15px;
+}
+.testi-name{font-size:13px;font-weight:600}
+.testi-loc{font-size:11px;opacity:.45}
+
+/* COMPARISON */
+.compare-wrap{
+  margin-top:40px;border-radius:20px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.1);
+}
+.compare-table{width:100%;border-collapse:collapse;font-size:14px}
+.compare-table th{padding:16px 20px;font-size:13px;font-weight:600;letter-spacing:.5px}
+.compare-table th:first-child{text-align:left;background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.45)}
+.compare-table th.col-regular{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.45)}
+.compare-table th.col-hydrate{
+  background:linear-gradient(135deg,rgba(0,191,255,0.18),rgba(0,100,255,0.12));
+  color:#7ee8ff;
+}
+.compare-table td{padding:14px 20px;border-top:1px solid rgba(255,255,255,0.06)}
+.compare-table td:first-child{text-align:left;background:rgba(255,255,255,0.02);color:rgba(255,255,255,0.6);font-size:13px}
+.compare-table td.col-regular{text-align:center;background:rgba(255,255,255,0.02);color:rgba(255,255,255,0.35)}
+.compare-table td.col-hydrate{text-align:center;background:rgba(0,191,255,0.05);color:#7ee8ff;font-weight:600}
+.tick{font-size:16px}
+.cross{font-size:16px}
+
+/* BADGES */
+.badges{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:40px}
+.badge{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:50px;padding:12px 22px;
+  font-size:13px;font-weight:500;backdrop-filter:blur(6px);
+  transition:background .2s,transform .2s;
+}
+.badge:hover{background:rgba(255,255,255,0.11);transform:scale(1.04)}
+.badge-icon{font-size:18px}
+
+/* FAQ */
+.faq{margin-top:40px;text-align:left}
+.faq-item{border-bottom:1px solid rgba(255,255,255,0.08)}
+.faq-q{
+  width:100%;background:none;border:none;color:#fff;
+  font-family:'Poppins',sans-serif;font-size:15px;font-weight:500;
+  padding:20px 0;display:flex;justify-content:space-between;
+  align-items:center;cursor:pointer;text-align:left;gap:10px;
+  transition:opacity .2s;
+}
+.faq-q:hover{opacity:.75}
+.faq-arrow{
+  min-width:24px;height:24px;border-radius:50%;
+  background:rgba(0,191,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;transition:transform .3s;
+}
+.faq-item.open .faq-arrow{transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .4s ease,padding .3s;
+  font-size:14px;opacity:.6;line-height:1.85;padding:0;
+}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:22px}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(35px);transition:.85s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
 
 /* FOOTER */
 footer{
-  padding:35px 15px;
-  text-align:center;
-  border-top:1px solid rgba(255,255,255,.15);
-  background:rgba(255,255,255,0.05);
-  font-size:13px;
+  padding:50px 20px 35px;text-align:center;
+  border-top:1px solid rgba(255,255,255,.08);
+  background:rgba(5,15,25,0.45);
+  backdrop-filter:blur(12px);
+  font-size:13px;position:relative;z-index:2;
 }
-footer img{width:90px;margin-top:12px}
+footer img{width:90px;margin-top:14px}
+.footer-links{
+  display:flex;gap:24px;justify-content:center;
+  margin:20px 0;flex-wrap:wrap;
+}
+.footer-links a{
+  color:rgba(255,255,255,0.4);text-decoration:none;
+  font-size:12px;transition:color .2s;
+}
+.footer-links a:hover{color:#7ee8ff}
+.footer-disclaimer{
+  margin-top:16px;font-size:11px;opacity:.38;
+  max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7;
+}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(30px);transition:.8s}
-.reveal.active{opacity:1;transform:translateY(0)}
-
-@media(max-width:480px){
+@media(max-width:600px){
   .hero h1{font-size:40px}
   .bottle img{width:260px}
+  .stat-num{font-size:36px}
+  .wa-float span{display:none}
+  .wa-float{padding:13px}
 }
 </style>
 </head>
-
 <body>
+
+<div id="progress-bar"></div>
+
+<nav id="navbar">
+  <span class="nav-logo">HydrateMax</span>
+  <a href="https://wa.me/601155851004" class="nav-cta" target="_blank" rel="noopener noreferrer">Order Now</a>
+</nav>
+
+<a href="https://wa.me/601155851004" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Order via WhatsApp">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+  <span>Order via WhatsApp</span>
+</a>
 
 <div class="snow" id="snow"></div>
 
 <!-- HERO -->
 <section class="hero">
+  <p class="hero-sub">Ultra Premium Alkaline Water</p>
   <h1>HydrateMax</h1>
-  <p>Ultra premium alkaline hydration developed under controlled laboratory conditions for purity, mineral balance and superior hydration performance.</p>
-
+  <p>Developed under controlled laboratory conditions for unmatched purity, mineral balance and superior hydration performance.</p>
   <div class="bottle">
     <img src="product.png" alt="HydrateMax Bottle">
   </div>
+</section>
 
-  <a href="https://wa.me/601155851004" class="wa" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-  </a>
+<!-- PH & STATS -->
+<section class="section reveal">
+  <p class="section-sub">Laboratory Results</p>
+  <h2>Precision Hydration Science</h2>
+  <div class="divider"></div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div><span class="stat-num" data-target="8.5">0</span><span class="stat-unit">pH</span></div>
+      <div class="stat-label">Alkaline pH Level</div>
+    </div>
+    <div class="stat-card">
+      <div><span class="stat-num" data-target="250">0</span><span class="stat-unit">mg/L</span></div>
+      <div class="stat-label">Dissolved Minerals</div>
+    </div>
+    <div class="stat-card">
+      <div><span class="stat-num" data-target="99.9">0</span><span class="stat-unit">%</span></div>
+      <div class="stat-label">Purity Rating</div>
+    </div>
+    <div class="stat-card">
+      <div><span class="stat-num" data-target="3">0</span><span class="stat-unit">×</span></div>
+      <div class="stat-label">Faster Cell Absorption</div>
+    </div>
+    <div class="stat-card">
+      <div><span class="stat-num" data-target="7">0</span><span class="stat-unit">+</span></div>
+      <div class="stat-label">Essential Minerals Added</div>
+    </div>
+    <div class="stat-card">
+      <div><span class="stat-num" data-target="0">0</span><span class="stat-unit">%</span></div>
+      <div class="stat-label">Sugar & Additives Free</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section reveal">
+  <p class="section-sub">Our Process</p>
+  <h2>How It's Made</h2>
+  <div class="divider"></div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-icon">💧</div>
+      <div class="step-num">1</div>
+      <h3>Source</h3>
+      <p>Drawn from a clean, monitored natural water source, free from industrial contamination and surface pollutants.</p>
+    </div>
+    <div class="step">
+      <div class="step-icon">🔬</div>
+      <div class="step-num">2</div>
+      <h3>Purify</h3>
+      <p>Multi-stage filtration and reverse osmosis removes all impurities, leaving only the purest water base.</p>
+    </div>
+    <div class="step">
+      <div class="step-icon">⚗️</div>
+      <div class="step-num">3</div>
+      <h3>Mineralise</h3>
+      <p>Precision mineral infusion restores essential calcium, magnesium and potassium at clinically optimal ratios.</p>
+    </div>
+    <div class="step">
+      <div class="step-icon">✅</div>
+      <div class="step-num">4</div>
+      <h3>Certify</h3>
+      <p>Every batch undergoes independent laboratory testing and quality certification before it reaches your hands.</p>
+    </div>
+  </div>
 </section>
 
 <!-- LAB VIDEO -->
 <section class="section reveal">
+  <p class="section-sub">Inside the Lab</p>
   <h2>Scientific Laboratory Research</h2>
-
+  <div class="divider"></div>
   <div class="lab-video">
     <video autoplay muted loop playsinline preload="auto">
       <source src="lab-video.mp4" type="video/mp4">
     </video>
   </div>
-
-  <p style="max-width:720px;margin:auto;opacity:.9">
-    HydrateMax undergoes continuous scientific monitoring and laboratory analysis to ensure mineral stability, purity and consistent hydration performance.
+  <p style="max-width:680px;margin:0 auto;opacity:.65;font-size:14px;line-height:1.85">
+    HydrateMax undergoes continuous scientific monitoring and laboratory analysis to ensure mineral stability, purity and consistent hydration performance in every bottle.
   </p>
 </section>
 
-<!-- CLINICAL -->
+<!-- CLINICAL CARDS -->
 <section class="section reveal">
+  <p class="section-sub">Quality Assurance</p>
   <h2>Clinical Laboratory Testing</h2>
+  <div class="divider"></div>
   <div class="benefits">
-    <div class="benefit">Laboratory tested mineral balance</div>
-    <div class="benefit">Controlled purification process</div>
-    <div class="benefit">Clinical quality monitoring</div>
-    <div class="benefit">Consistent alkaline hydration</div>
+    <div class="benefit"><div class="benefit-icon">🧪</div>Laboratory tested mineral balance verified by independent analysis</div>
+    <div class="benefit"><div class="benefit-icon">⚙️</div>Controlled multi-stage purification process</div>
+    <div class="benefit"><div class="benefit-icon">📊</div>Continuous clinical quality monitoring and batch testing</div>
+    <div class="benefit"><div class="benefit-icon">💧</div>Consistent alkaline hydration in every single bottle</div>
   </div>
 </section>
 
-<!-- CERTIFICATION -->
+<!-- CERTIFICATION BADGES -->
 <section class="section reveal">
+  <p class="section-sub">Recognised Standards</p>
   <h2>Quality & Certification</h2>
-  <div class="benefits">
-    <div class="benefit">ISO Quality Controlled Production</div>
-    <div class="benefit">Laboratory Verified Composition</div>
-    <div class="benefit">Food Grade Safe Packaging</div>
-    <div class="benefit">Clean Source Water Monitoring</div>
+  <div class="divider"></div>
+  <div class="badges">
+    <div class="badge"><span class="badge-icon">🏅</span>ISO Quality Controlled</div>
+    <div class="badge"><span class="badge-icon">✅</span>Lab Verified Composition</div>
+    <div class="badge"><span class="badge-icon">📦</span>Food Grade Packaging</div>
+    <div class="badge"><span class="badge-icon">🌊</span>Clean Source Monitoring</div>
+    <div class="badge"><span class="badge-icon">🕌</span>Halal Certified</div>
+    <div class="badge"><span class="badge-icon">🔒</span>KKM Compliant</div>
   </div>
 </section>
 
+<!-- COMPARISON TABLE -->
+<section class="section reveal">
+  <p class="section-sub">See the Difference</p>
+  <h2>HydrateMax vs Regular Water</h2>
+  <div class="divider"></div>
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="col-regular">Regular Water</th>
+          <th class="col-hydrate">HydrateMax</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Alkaline pH (8.5+)</td><td class="col-regular"><span class="cross">✗</span></td><td class="col-hydrate"><span class="tick">✓</span></td></tr>
+        <tr><td>Mineral Infused</td><td class="col-regular"><span class="cross">✗</span></td><td class="col-hydrate"><span class="tick">✓</span></td></tr>
+        <tr><td>Laboratory Verified</td><td class="col-regular"><span class="cross">✗</span></td><td class="col-hydrate"><span class="tick">✓</span></td></tr>
+        <tr><td>ISO Quality Controlled</td><td class="col-regular"><span class="cross">✗</span></td><td class="col-hydrate"><span class="tick">✓</span></td></tr>
+        <tr><td>Enhanced Cell Absorption</td><td class="col-regular"><span class="cross">✗</span></td><td class="col-hydrate"><span class="tick">✓</span></td></tr>
+        <tr><td>Antioxidant Properties</td><td class="col-regular"><span class="cross">✗</span></td><td class="col-hydrate"><span class="tick">✓</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section reveal">
+  <p class="section-sub">Customer Stories</p>
+  <h2>What People Are Saying</h2>
+  <div class="divider"></div>
+  <div class="testimonials">
+    <div class="testi">
+      <div class="testi-quote">"</div>
+      <div class="stars">★★★★★</div>
+      <p>I've been drinking HydrateMax for 3 months and I genuinely feel more energetic throughout the day. The taste is so clean and smooth.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">A</div>
+        <div><div class="testi-name">Amirah S.</div><div class="testi-loc">Kuala Lumpur</div></div>
+      </div>
+    </div>
+    <div class="testi">
+      <div class="testi-quote">"</div>
+      <div class="stars">★★★★★</div>
+      <p>As someone who works out daily, hydration matters a lot to me. HydrateMax is the only water I drink now — the mineral balance is perfect.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">R</div>
+        <div><div class="testi-name">Rajan K.</div><div class="testi-loc">Petaling Jaya</div></div>
+      </div>
+    </div>
+    <div class="testi">
+      <div class="testi-quote">"</div>
+      <div class="stars">★★★★★</div>
+      <p>My whole family switched to HydrateMax. Knowing it's lab-tested and certified gives me real peace of mind for my kids.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">N</div>
+        <div><div class="testi-name">Nurul H.</div><div class="testi-loc">Shah Alam</div></div>
+      </div>
+    </div>
+    <div class="testi">
+      <div class="testi-quote">"</div>
+      <div class="stars">★★★★★</div>
+      <p>I was sceptical at first but after two weeks I noticed my digestion improved and I feel less bloated. Genuinely impressed with HydrateMax.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">F</div>
+        <div><div class="testi-name">Faizal M.</div><div class="testi-loc">Johor Bahru</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section reveal">
+  <p class="section-sub">Got Questions?</p>
+  <h2>Frequently Asked Questions</h2>
+  <div class="divider"></div>
+  <div class="faq">
+    <div class="faq-item">
+      <button class="faq-q">What is alkaline water and why does it matter?<span class="faq-arrow">+</span></button>
+      <div class="faq-a">Alkaline water has a pH above 7, typically 8–9.5. It is believed to help neutralise acid in the body, improve hydration at the cellular level, and support overall wellness when consumed consistently.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How is HydrateMax different from other bottled water?<span class="faq-arrow">+</span></button>
+      <div class="faq-a">HydrateMax goes through a multi-stage purification and controlled mineral infusion process, verified by laboratory testing. Most bottled water brands do not undergo this level of quality control or mineral optimisation.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is HydrateMax safe for children and the elderly?<span class="faq-arrow">+</span></button>
+      <div class="faq-a">Yes. HydrateMax is food-grade certified and complies with KKM standards. It is safe for all ages. However, if you have a specific medical condition, please consult your doctor before making any dietary changes.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How do I place an order?<span class="faq-arrow">+</span></button>
+      <div class="faq-a">Simply tap the WhatsApp button on this page to reach our official distributor. Our team will assist you with product selection, pricing and delivery to your doorstep.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is HydrateMax Halal certified?<span class="faq-arrow">+</span></button>
+      <div class="faq-a">Yes. HydrateMax holds Halal certification and is fully compliant with Malaysian food and health authority requirements.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <p>Official Distributor</p>
-  <strong>Koperasi Warga Institut Koperasi Malaysia Berhad (KoIKMA)</strong><br>
-  <img src="koikma-logo.png">
+  <p style="opacity:.45;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px">Official Distributor</p>
+  <strong style="font-size:15px">Koperasi Warga Institut Koperasi Malaysia Berhad (KoIKMA)</strong><br>
+  <img src="koikma-logo.png" alt="KoIKMA Logo">
+  <div class="footer-links">
+    <a href="https://wa.me/601155851004" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Use</a>
+  </div>
+  <p class="footer-disclaimer">
+    HydrateMax is distributed exclusively by KoIKMA. Product claims are based on internal laboratory testing.
+    This product is not intended to diagnose, treat, cure, or prevent any disease.
+    &copy; <span id="year"></span> HydrateMax. All rights reserved.
+  </p>
 </footer>
 
 <script>
-/* REVEAL */
-const reveals=document.querySelectorAll('.reveal');
-function revealOnScroll(){
-  const wh=window.innerHeight;
-  reveals.forEach(el=>{
-    if(el.getBoundingClientRect().top<wh-60){el.classList.add('active')}
-  });
-}
-window.addEventListener('scroll',revealOnScroll);
-revealOnScroll();
-
 /* SNOW */
 const snow=document.getElementById('snow');
 for(let i=0;i<40;i++){
   const s=document.createElement('span');
   s.style.left=Math.random()*100+'vw';
   s.style.animationDuration=(6+Math.random()*6)+'s';
+  s.style.animationDelay=-(Math.random()*12)+'s';
   snow.appendChild(s);
 }
-</script>
 
+/* SCROLL: progress bar + sticky nav */
+window.addEventListener('scroll',()=>{
+  const sc=document.documentElement;
+  const pct=(sc.scrollTop/(sc.scrollHeight-sc.clientHeight))*100;
+  document.getElementById('progress-bar').style.width=pct+'%';
+  document.getElementById('navbar').classList.toggle('scrolled',sc.scrollTop>80);
+});
+
+/* REVEAL */
+const reveals=document.querySelectorAll('.reveal');
+function revealOnScroll(){
+  const wh=window.innerHeight;
+  reveals.forEach(el=>{
+    if(el.getBoundingClientRect().top<wh-60)el.classList.add('active');
+  });
+}
+window.addEventListener('scroll',revealOnScroll);
+revealOnScroll();
+
+/* ANIMATED COUNTERS */
+function animateCounter(el){
+  const target=parseFloat(el.dataset.target);
+  const isDecimal=String(target).includes('.');
+  const duration=1800,step=16;
+  const increment=target/(duration/step);
+  let current=0;
+  const timer=setInterval(()=>{
+    current+=increment;
+    if(current>=target){current=target;clearInterval(timer)}
+    el.textContent=isDecimal?current.toFixed(1):Math.floor(current);
+  },step);
+}
+const cObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){animateCounter(e.target);cObs.unobserve(e.target)}
+  });
+},{threshold:0.5});
+document.querySelectorAll('.stat-num[data-target]').forEach(el=>cObs.observe(el));
+
+/* FAQ ACCORDION */
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement;
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  });
+});
+
+/* YEAR */
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
