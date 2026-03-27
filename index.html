@@ -124,8 +124,28 @@ nav.scrolled .nav-cta{opacity:1;pointer-events:all}
   max-width:580px;margin-top:16px;
   font-size:15px;opacity:.8;line-height:1.85;
 }
-.bottle{margin-top:36px}
-.bottle img{width:420px;max-width:80vw;filter:drop-shadow(0 20px 60px rgba(0,191,255,0.35))}
+.bottle{
+  margin-top:36px;
+  position:relative;
+  width:520px;
+  max-width:92vw;
+}
+.bottle img{
+  width:100%;
+  display:block;
+  border-radius:20px;
+  filter:brightness(1.05) saturate(1.15) drop-shadow(0 20px 60px rgba(0,191,255,0.35));
+}
+.bottle::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:20px;
+  background:
+    linear-gradient(to bottom, rgba(5,15,25,0.45) 0%, transparent 20%, transparent 65%, rgba(5,15,25,1) 100%),
+    linear-gradient(to right, rgba(5,15,25,0.7) 0%, transparent 20%, transparent 80%, rgba(5,15,25,0.7) 100%);
+  pointer-events:none;
+}
 
 /* FLOATING WA PILL */
 .wa-float{
@@ -412,14 +432,6 @@ footer img{width:90px;margin-top:14px}
       <div><span class="stat-num" data-target="3">0</span><span class="stat-unit">×</span></div>
       <div class="stat-label">Faster Cell Absorption</div>
     </div>
-    <div class="stat-card">
-      <div><span class="stat-num" data-target="7">0</span><span class="stat-unit">+</span></div>
-      <div class="stat-label">Essential Minerals Added</div>
-    </div>
-    <div class="stat-card">
-      <div><span class="stat-num" data-target="0">0</span><span class="stat-unit">%</span></div>
-      <div class="stat-label">Sugar & Additives Free</div>
-    </div>
   </div>
 </section>
 
@@ -447,12 +459,7 @@ footer img{width:90px;margin-top:14px}
       <h3>Mineralise</h3>
       <p>Precision mineral infusion restores essential calcium, magnesium and potassium at clinically optimal ratios.</p>
     </div>
-    <div class="step">
-      <div class="step-icon">✅</div>
-      <div class="step-num">4</div>
-      <h3>Certify</h3>
-      <p>Every batch undergoes independent laboratory testing and quality certification before it reaches your hands.</p>
-    </div>
+
   </div>
 </section>
 
@@ -558,15 +565,7 @@ footer img{width:90px;margin-top:14px}
         <div><div class="testi-name">Nurul H.</div><div class="testi-loc">Shah Alam</div></div>
       </div>
     </div>
-    <div class="testi">
-      <div class="testi-quote">"</div>
-      <div class="stars">★★★★★</div>
-      <p>I was sceptical at first but after two weeks I noticed my digestion improved and I feel less bloated. Genuinely impressed with HydrateMax.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">F</div>
-        <div><div class="testi-name">Faizal M.</div><div class="testi-loc">Johor Bahru</div></div>
-      </div>
-    </div>
+
   </div>
 </section>
 
