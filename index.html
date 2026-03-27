@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -147,22 +147,101 @@ nav.scrolled .nav-cta{opacity:1;pointer-events:all}
   pointer-events:none;
 }
 
-/* FLOATING WA PILL */
-.wa-float{
-  position:fixed;bottom:28px;right:28px;z-index:998;
-  display:flex;align-items:center;gap:10px;
-  background:#25D366;color:#fff;text-decoration:none;
-  padding:12px 22px 12px 14px;border-radius:50px;
-  font-size:14px;font-weight:600;
-  box-shadow:0 4px 24px rgba(37,211,102,0.5);
-  animation:waPulse 2.5s ease-in-out infinite;
-  transition:transform .2s,box-shadow .2s;
+/* OPERATOR WIDGET */
+.op-widget{
+  position:fixed;bottom:24px;right:20px;z-index:998;
+  display:flex;flex-direction:column;align-items:flex-end;
+  gap:10px;
 }
-.wa-float:hover{transform:scale(1.06);animation:none}
-.wa-float img{width:22px;height:22px}
-@keyframes waPulse{
-  0%,100%{box-shadow:0 4px 24px rgba(37,211,102,0.5)}
-  50%{box-shadow:0 4px 38px rgba(37,211,102,0.85)}
+.op-bubble{
+  background:#fff;color:#1a1a2e;
+  border-radius:14px 14px 4px 14px;
+  padding:8px 12px;
+  font-size:12px;font-weight:500;line-height:1.4;
+  box-shadow:0 4px 16px rgba(0,0,0,0.18);
+  max-width:150px;text-align:left;
+  animation:bubblePop .4s cubic-bezier(.34,1.56,.64,1) both,bubbleShake 4s ease-in-out 3s infinite;
+  position:relative;
+}
+.op-bubble::after{
+  content:"";
+  position:absolute;bottom:-7px;right:18px;
+  width:0;height:0;
+  border-left:7px solid transparent;
+  border-right:3px solid transparent;
+  border-top:8px solid #fff;
+}
+.op-bubble strong{color:#25D366;display:block;margin-bottom:1px;font-size:11px}
+.op-avatar-wrap{
+  position:relative;
+  width:68px;height:68px;
+  animation:opBounce .6s cubic-bezier(.34,1.56,.64,1) .2s both, opFloat 3s ease-in-out 1s infinite;
+}
+.op-avatar-wrap::before{
+  content:"";
+  position:absolute;inset:-4px;border-radius:50%;
+  background:conic-gradient(#25D366,#00e676,#25D366);
+  animation:spinRing 3s linear infinite;
+  z-index:0;
+}
+.op-avatar-wrap::after{
+  content:"";
+  position:absolute;inset:-1px;border-radius:50%;
+  background:#1a1a2e;z-index:1;
+}
+.op-link{
+  display:block;
+  width:68px;height:68px;
+  border-radius:50%;
+  overflow:hidden;
+  position:relative;z-index:2;
+  text-decoration:none;
+  cursor:pointer;
+}
+.op-face{
+  width:100%;height:100%;
+  border-radius:50%;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background:#1a1a2e;
+}
+.op-face img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:top center;
+  border-radius:50%;
+}
+.op-online{
+  position:absolute;bottom:3px;right:3px;
+  width:14px;height:14px;
+  background:#25D366;border-radius:50%;
+  border:2px solid #1a1a2e;z-index:3;
+  animation:onlinePulse 2s ease-in-out infinite;
+}
+@keyframes bubblePop{
+  from{opacity:0;transform:scale(0.7) translateY(10px)}
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+@keyframes bubbleShake{
+  0%,90%,100%{transform:translateX(0)}
+  92%{transform:translateX(-4px)}
+  94%{transform:translateX(4px)}
+  96%{transform:translateX(-3px)}
+  98%{transform:translateX(2px)}
+}
+@keyframes opBounce{
+  from{opacity:0;transform:scale(0) translateY(30px)}
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+@keyframes opFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+@keyframes spinRing{
+  to{transform:rotate(360deg)}
+}
+@keyframes onlinePulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,0.6)}
+  50%{box-shadow:0 0 0 5px rgba(37,211,102,0)}
 }
 
 /* SECTION */
@@ -379,8 +458,7 @@ footer img{width:90px;margin-top:14px}
   .hero h1{font-size:40px}
   .bottle img{width:260px}
   .stat-num{font-size:36px}
-  .wa-float span{display:none}
-  .wa-float{padding:13px}
+  .op-bubble{font-size:12px;max-width:180px}
 }
 </style>
 </head>
@@ -393,10 +471,20 @@ footer img{width:90px;margin-top:14px}
   <a href="https://wa.me/601155851004" class="nav-cta" target="_blank" rel="noopener noreferrer">Order Now</a>
 </nav>
 
-<a href="https://wa.me/601155851004" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Order via WhatsApp">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-  <span>Order via WhatsApp</span>
-</a>
+<!-- OPERATOR WIDGET -->
+<div class="op-widget">
+  <div class="op-bubble">
+    Tap untuk order sekarang! 💧
+  </div>
+  <div class="op-avatar-wrap">
+    <a href="https://wa.me/601155851004" class="op-link" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+      <div class="op-face">
+        <img src="avatar.png" onerror="this.style.display='none';this.parentElement.innerHTML='👩‍💼'" alt="Sara - Customer Service">
+      </div>
+    </a>
+    <div class="op-online"></div>
+  </div>
+</div>
 
 <div class="snow" id="snow"></div>
 
@@ -459,7 +547,6 @@ footer img{width:90px;margin-top:14px}
       <h3>Mineralise</h3>
       <p>Precision mineral infusion restores essential calcium, magnesium and potassium at clinically optimal ratios.</p>
     </div>
-
   </div>
 </section>
 
@@ -565,7 +652,6 @@ footer img{width:90px;margin-top:14px}
         <div><div class="testi-name">Nurul H.</div><div class="testi-loc">Shah Alam</div></div>
       </div>
     </div>
-
   </div>
 </section>
 
